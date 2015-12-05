@@ -4,6 +4,13 @@
 
 Generate API document/playground for any kind of Java webapp.
 
+The API generator:
+
+```java
+RZTRestAPIScanner scanner = new RZTRestAPIScanner("Test Webapp");
+scanner.scanPackage("com.koujalgiamith");
+```
+
 A sample Jersey service class:
 
 ```java
