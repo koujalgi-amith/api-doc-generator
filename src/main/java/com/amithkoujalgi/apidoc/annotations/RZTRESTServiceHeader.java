@@ -1,4 +1,4 @@
-package com.amithkoujalgi.apidoc.core.annotations;
+package com.amithkoujalgi.apidoc.annotations;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

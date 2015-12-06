@@ -1,4 +1,4 @@
-package com.amithkoujalgi.apidoc.core.test;
+package com.amithkoujalgi.apidoc.test;
 
 import java.io.IOException;
 
@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.amithkoujalgi.apidoc.core.annotations.RZTRESTService;
-import com.amithkoujalgi.apidoc.core.annotations.RZTRESTServiceHeader;
-import com.amithkoujalgi.apidoc.core.annotations.RZTRESTServiceMethod;
-import com.amithkoujalgi.apidoc.core.annotations.RZTRESTServiceResponseCode;
-import com.amithkoujalgi.apidoc.core.annotations.RZTRESTServiceMethod.RESTMethodType;
+import com.amithkoujalgi.apidoc.annotations.RZTRESTService;
+import com.amithkoujalgi.apidoc.annotations.RZTRESTServiceHeader;
+import com.amithkoujalgi.apidoc.annotations.RZTRESTServiceMethod;
+import com.amithkoujalgi.apidoc.annotations.RZTRESTServiceResponseCode;
+import com.amithkoujalgi.apidoc.annotations.RZTRESTServiceMethod.RESTMethodType;
 
 @RZTRESTService(serviceDescription = "Test service desc", serviceName = "Test service", path = "/", headers = {
 		@RZTRESTServiceHeader(description = "Test service header", name = "X-TEST-HEADER", valuesAllowed = { "123",

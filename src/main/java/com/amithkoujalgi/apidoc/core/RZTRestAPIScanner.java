@@ -1,4 +1,4 @@
-package com.amithkoujalgi.apidoc.core.entry;
+package com.amithkoujalgi.apidoc.core;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,10 +8,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.amithkoujalgi.apidoc.core.annotations.RZTRESTService;
-import com.amithkoujalgi.apidoc.core.annotations.RZTRESTServiceHeader;
-import com.amithkoujalgi.apidoc.core.annotations.RZTRESTServiceMethod;
-import com.amithkoujalgi.apidoc.core.annotations.RZTRESTServiceResponseCode;
+import com.amithkoujalgi.apidoc.annotations.RZTRESTService;
+import com.amithkoujalgi.apidoc.annotations.RZTRESTServiceHeader;
+import com.amithkoujalgi.apidoc.annotations.RZTRESTServiceMethod;
+import com.amithkoujalgi.apidoc.annotations.RZTRESTServiceResponseCode;
 import com.amithkoujalgi.apidoc.model.AppType;
 import com.amithkoujalgi.apidoc.model.RESTApplicationAPISpec;
 import com.amithkoujalgi.apidoc.model.RESTService;

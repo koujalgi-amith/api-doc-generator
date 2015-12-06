@@ -1,6 +1,6 @@
-package com.amithkoujalgi.apidoc.core.test;
+package com.amithkoujalgi.apidoc.test;
 
-import com.amithkoujalgi.apidoc.core.entry.RZTRestAPIScanner;
+import com.amithkoujalgi.apidoc.core.RZTRestAPIScanner;
 
 public class TestAPIDocGen {
 	public static void main(String[] args) throws Exception {
