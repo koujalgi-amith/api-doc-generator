@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import com.amithkoujalgi.apidoc.annotations.RZTRESTService;
 import com.amithkoujalgi.apidoc.annotations.RZTRESTServiceHeader;
@@ -22,6 +23,8 @@ import com.amithkoujalgi.apidoc.utils.FileUtils;
 import com.amithkoujalgi.apidoc.utils.JSONUtils;
 import com.google.gson.GsonBuilder;
 
+import uk.co.jemos.podam.api.AbstractRandomDataProviderStrategy;
+import uk.co.jemos.podam.api.AttributeMetadata;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
@@ -199,7 +202,16 @@ public class RZTRestAPIScanner {
 	}
 
 	private <T> String buildJSONFromEmptyPojo(String className) throws ClassNotFoundException {
-		PodamFactory factory = new PodamFactoryImpl();
+		AbstractRandomDataProviderStrategy providerStrategy = new AbstractRandomDataProviderStrategy() {
+			@Override
+			public String getStringValue(AttributeMetadata attributeMetadata) {
+				return UUID.randomUUID().toString();
+			}
+		};
+		providerStrategy.setMemoization(true);
+		
+		PodamFactory factory = new PodamFactoryImpl(providerStrategy);
+
 		@SuppressWarnings("unchecked")
 		T pojoObj = (T) factory.manufacturePojoWithFullData(Class.forName(className));
 		return new GsonBuilder().setPrettyPrinting().create().toJson(pojoObj);
