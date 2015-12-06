@@ -7,8 +7,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.integration.config.annotation.MethodAnnotationPostProcessor;
-
 import com.google.gson.GsonBuilder;
 import com.koujalgiamith.apidoc.core.annotations.RZTRESTService;
 import com.koujalgiamith.apidoc.core.annotations.RZTRESTServiceHeader;
@@ -198,6 +196,7 @@ public class RZTRestAPIScanner {
 		return new GsonBuilder().setPrettyPrinting().create().toJson(pojoObj);
 	}
 
+	@SuppressWarnings("unused")
 	private AppType analyseAppType(Class<?> className) {
 		if (className.getSuperclass().getName().equals("javax.servlet.http.HttpServlet")) {
 			return AppType.SERVLET_3_0;
