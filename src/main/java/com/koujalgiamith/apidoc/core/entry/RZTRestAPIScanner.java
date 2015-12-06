@@ -1,6 +1,7 @@
 package com.koujalgiamith.apidoc.core.entry;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.net.URL;
@@ -18,6 +19,7 @@ import com.koujalgiamith.apidoc.model.RESTService;
 import com.koujalgiamith.apidoc.model.RESTServiceHeader;
 import com.koujalgiamith.apidoc.model.RESTServiceMethod;
 import com.koujalgiamith.apidoc.model.RESTServiceMethodResponseCode;
+import com.koujalgiamith.apidoc.utils.FileUtils;
 import com.koujalgiamith.apidoc.utils.JSONUtils;
 
 import uk.co.jemos.podam.api.PodamFactory;
@@ -163,7 +165,7 @@ public class RZTRestAPIScanner {
 
 	}
 
-	public RESTApplicationAPISpec scanPackage(String packageName)
+	public RESTApplicationAPISpec scanPackages(String packageName)
 			throws InstantiationException, IllegalAccessException, ClassNotFoundException {
 		System.out.println("Building model...");
 
@@ -187,6 +189,13 @@ public class RZTRestAPIScanner {
 		}
 		JSONUtils.printJson(api);
 		return api;
+	}
+
+	public void scanPackagesAndGenerate(String packageName, String destDirectorydirectory)
+			throws InstantiationException, IllegalAccessException, ClassNotFoundException, IOException {
+		File f = new File(destDirectorydirectory + File.separator + "api_spec_doc.json");
+		FileUtils.writeFile(f.getAbsolutePath(), JSONUtils.stringify(scanPackages(packageName)));
+		System.out.println("Wrote " + f.getAbsolutePath());
 	}
 
 	private <T> String buildJSONFromEmptyPojo(String className) throws ClassNotFoundException {
