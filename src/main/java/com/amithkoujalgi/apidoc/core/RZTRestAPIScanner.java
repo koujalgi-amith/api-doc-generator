@@ -90,13 +90,13 @@ public class RZTRestAPIScanner {
 						method.setMethodDescription(methodAnnotation.methodDescription());
 					}
 					if (methodAnnotation.methodRequestClass() != null) {
-						method.setMethodRequestClass(methodAnnotation.methodRequestClass().getName());
 						if ("javax.validation.constraints.Null"
 								.equals(methodAnnotation.methodRequestClass().getName())) {
 							// if request class is not set, then this method
 							// probably isn't taking an Object as a request. So,
 							// ignore.
 						} else {
+							method.setMethodRequestClass(methodAnnotation.methodRequestClass().getName());
 							method.setRequestJSONStructure(buildJSONFromEmptyPojo(method.getMethodRequestClass()));
 						}
 
