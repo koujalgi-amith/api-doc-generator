@@ -1,8 +1,8 @@
-package com.koujalgiamith.apidoc.model;
+package com.amithkoujalgi.apidoc.model;
 
 import java.util.List;
 
-import com.koujalgiamith.apidoc.core.annotations.RZTRESTServiceMethod.RESTMethodType;
+import com.amithkoujalgi.apidoc.core.annotations.RZTRESTServiceMethod.RESTMethodType;
 
 public class RESTServiceMethod {
 	private String methodName, methodDescription, methodResponseClass, methodRequestClass, producesMediaType,

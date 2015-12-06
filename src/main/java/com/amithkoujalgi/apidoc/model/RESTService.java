@@ -1,4 +1,4 @@
-package com.koujalgiamith.apidoc.model;
+package com.amithkoujalgi.apidoc.model;
 
 import java.util.ArrayList;
 import java.util.List;

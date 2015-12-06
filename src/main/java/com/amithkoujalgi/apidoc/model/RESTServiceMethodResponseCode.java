@@ -1,4 +1,4 @@
-package com.koujalgiamith.apidoc.model;
+package com.amithkoujalgi.apidoc.model;
 
 public class RESTServiceMethodResponseCode {
 	private String statusCode, httpCode, description;

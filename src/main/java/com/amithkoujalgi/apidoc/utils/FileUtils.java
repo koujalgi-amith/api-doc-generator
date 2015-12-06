@@ -1,4 +1,4 @@
-package com.koujalgiamith.apidoc.utils;
+package com.amithkoujalgi.apidoc.utils;
 
 import java.io.File;
 import java.io.FileWriter;

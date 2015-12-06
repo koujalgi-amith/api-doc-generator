@@ -1,4 +1,4 @@
-package com.koujalgiamith.apidoc.core.test;
+package com.amithkoujalgi.apidoc.core.test;
 
 public class Message {
 	private String message, messageCode;

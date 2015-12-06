@@ -1,4 +1,4 @@
-package com.koujalgiamith.apidoc.utils;
+package com.amithkoujalgi.apidoc.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

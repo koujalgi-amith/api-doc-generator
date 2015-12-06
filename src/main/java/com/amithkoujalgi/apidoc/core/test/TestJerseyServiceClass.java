@@ -1,3 +1,4 @@
+package com.amithkoujalgi.apidoc.core.test;
 //package com.koujalgiamith.apidoc.core.test;
 //
 //import javax.ws.rs.GET;

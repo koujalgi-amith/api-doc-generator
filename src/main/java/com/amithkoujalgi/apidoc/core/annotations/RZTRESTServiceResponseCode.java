@@ -1,4 +1,4 @@
-package com.koujalgiamith.apidoc.core.annotations;
+package com.amithkoujalgi.apidoc.core.annotations;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -7,14 +7,13 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Documented
-@Target(value = { ElementType.TYPE, ElementType.METHOD })
+@Target(value = ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface RZTRESTServiceHeader {
+public @interface RZTRESTServiceResponseCode {
 
-	public String name();
+	public String httpCode();
 
 	public String description();
 
-	public String[]valuesAllowed();
-
+	public String statusCode();
 }

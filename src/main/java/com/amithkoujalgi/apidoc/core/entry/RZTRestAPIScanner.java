@@ -1,4 +1,4 @@
-package com.koujalgiamith.apidoc.core.entry;
+package com.amithkoujalgi.apidoc.core.entry;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,19 +8,19 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.amithkoujalgi.apidoc.core.annotations.RZTRESTService;
+import com.amithkoujalgi.apidoc.core.annotations.RZTRESTServiceHeader;
+import com.amithkoujalgi.apidoc.core.annotations.RZTRESTServiceMethod;
+import com.amithkoujalgi.apidoc.core.annotations.RZTRESTServiceResponseCode;
+import com.amithkoujalgi.apidoc.model.AppType;
+import com.amithkoujalgi.apidoc.model.RESTApplicationAPISpec;
+import com.amithkoujalgi.apidoc.model.RESTService;
+import com.amithkoujalgi.apidoc.model.RESTServiceHeader;
+import com.amithkoujalgi.apidoc.model.RESTServiceMethod;
+import com.amithkoujalgi.apidoc.model.RESTServiceMethodResponseCode;
+import com.amithkoujalgi.apidoc.utils.FileUtils;
+import com.amithkoujalgi.apidoc.utils.JSONUtils;
 import com.google.gson.GsonBuilder;
-import com.koujalgiamith.apidoc.core.annotations.RZTRESTService;
-import com.koujalgiamith.apidoc.core.annotations.RZTRESTServiceHeader;
-import com.koujalgiamith.apidoc.core.annotations.RZTRESTServiceMethod;
-import com.koujalgiamith.apidoc.core.annotations.RZTRESTServiceResponseCode;
-import com.koujalgiamith.apidoc.model.AppType;
-import com.koujalgiamith.apidoc.model.RESTApplicationAPISpec;
-import com.koujalgiamith.apidoc.model.RESTService;
-import com.koujalgiamith.apidoc.model.RESTServiceHeader;
-import com.koujalgiamith.apidoc.model.RESTServiceMethod;
-import com.koujalgiamith.apidoc.model.RESTServiceMethodResponseCode;
-import com.koujalgiamith.apidoc.utils.FileUtils;
-import com.koujalgiamith.apidoc.utils.JSONUtils;
 
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
