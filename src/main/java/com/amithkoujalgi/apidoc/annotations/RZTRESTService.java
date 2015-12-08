@@ -7,8 +7,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Documented
-@Target(value = ElementType.TYPE)
-@Retention(RetentionPolicy.RUNTIME)
+@Target( value = ElementType.TYPE )
+@Retention( RetentionPolicy.RUNTIME )
 public @interface RZTRESTService {
 
 	public String version() default "1.0";
@@ -19,10 +19,15 @@ public @interface RZTRESTService {
 
 	public String serviceName() default "";
 
-	public RZTRESTServiceHeader[]headers() default {};
+	public RZTRESTServiceHeader[] headers() default {};
 
 	public boolean deprecated() default false;
 
 	public boolean visible() default true;
+
+	/**
+	 * The service method can have tags, which can be used for grouping.
+	 */
+	public String[] tags() default {};
 
 }

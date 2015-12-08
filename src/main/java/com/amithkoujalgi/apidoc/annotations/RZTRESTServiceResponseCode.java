@@ -7,8 +7,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Documented
-@Target(value = ElementType.TYPE)
-@Retention(RetentionPolicy.RUNTIME)
+@Target( value = ElementType.TYPE )
+@Retention( RetentionPolicy.RUNTIME )
 public @interface RZTRESTServiceResponseCode {
 
 	public String httpCode();

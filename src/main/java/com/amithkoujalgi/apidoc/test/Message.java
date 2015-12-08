@@ -1,21 +1,26 @@
 package com.amithkoujalgi.apidoc.test;
 
 public class Message {
+
 	private String message, messageCode;
 
-	public String getMessage() {
+	public String getMessage()
+	{
 		return message;
 	}
 
-	public void setMessage(String message) {
+	public void setMessage( String message )
+	{
 		this.message = message;
 	}
 
-	public String getMessageCode() {
+	public String getMessageCode()
+	{
 		return messageCode;
 	}
 
-	public void setMessageCode(String messageCode) {
+	public void setMessageCode( String messageCode )
+	{
 		this.messageCode = messageCode;
 	}
 }
