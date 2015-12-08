@@ -13,7 +13,7 @@ import com.amithkoujalgi.apidoc.annotations.RZTRESTServiceMethod.RESTMethodType;
 
 @RZTRESTService( serviceDescription = "Test service desc", serviceName = "Test service", path = "/", headers = {
 		@RZTRESTServiceHeader( description = "Test service header", name = "X-TEST-HEADER", valuesAllowed = { "123",
-				"abc" } ) })
+				"abc" } ) }, tags = { "test", "servlet" })
 
 public class TestHTTPServletClass extends HttpServlet {
 
@@ -23,7 +23,7 @@ public class TestHTTPServletClass extends HttpServlet {
 			@RZTRESTServiceResponseCode( httpCode = "200", description = "Fetch city info successfully", statusCode = "200_OK" ),
 			@RZTRESTServiceResponseCode( httpCode = "400", description = "City name isn't right", statusCode = "ERR_BAD_CITY_NAME" ) }, headers = {
 					@RZTRESTServiceHeader( description = "API Auth token", name = "X-RZT-API-TOKEN", valuesAllowed = {
-							"ogow1onnovnlk3" } ) })
+							"ogow1onnovnlk3" } ) }, tags = { "fetch", "city" })
 	@Override
 	protected void doGet( HttpServletRequest req, HttpServletResponse resp ) throws ServletException, IOException
 	{

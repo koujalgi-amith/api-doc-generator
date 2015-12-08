@@ -68,6 +68,15 @@ public class RZTRestAPIScanner {
 			{
 				svc.setHeaders(serviceHeaders);
 			}
+			if( serviceAnnotation.tags() != null && serviceAnnotation.tags().length > 0 )
+			{
+				List<String> tagsList = new ArrayList<>();
+				for( String tag : serviceAnnotation.tags() )
+				{
+					tagsList.add(tag);
+				}
+				svc.setTags(tagsList);
+			}
 
 			svc.setPath(basePath);
 			svc.setServiceDescription(serviceAnnotation.serviceDescription());
@@ -171,6 +180,17 @@ public class RZTRestAPIScanner {
 							methodHeaders.add(rHeader);
 						}
 					}
+
+					if( methodAnnotation.tags() != null && methodAnnotation.tags().length > 0 )
+					{
+						List<String> tagsList = new ArrayList<>();
+						for( String tag : methodAnnotation.tags() )
+						{
+							tagsList.add(tag);
+						}
+						method.setTags(tagsList);
+					}
+
 					if( !methodHeaders.isEmpty() )
 					{
 						method.setHeaders(methodHeaders);

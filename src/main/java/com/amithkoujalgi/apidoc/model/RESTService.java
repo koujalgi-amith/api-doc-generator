@@ -6,6 +6,7 @@ import java.util.List;
 public class RESTService {
 
 	private String serviceName, serviceClassName, serviceDescription, path;
+	private List<String> tags;
 
 	public String getServiceClassName()
 	{
@@ -22,6 +23,16 @@ public class RESTService {
 	public String getServiceName()
 	{
 		return serviceName;
+	}
+
+	public List<String> getTags()
+	{
+		return tags;
+	}
+
+	public void setTags( List<String> tags )
+	{
+		this.tags = tags;
 	}
 
 	public void setServiceName( String serviceName )
