@@ -1,0 +1,191 @@
+{
+  "appName": "Test Webapp",
+  "services": [
+    {
+      "serviceName": "Test service",
+      "serviceClassName": "com.razorthink.utils.apidoc.test.TestHTTPServletClass",
+      "serviceDescription": "Test service desc",
+      "path": "/",
+      "tags": [
+        "test",
+        "servlet"
+      ],
+      "headers": [
+        {
+          "name": "X-TEST-HEADER",
+          "description": "Test service header",
+          "allowedValues": [
+            "123",
+            "abc"
+          ]
+        }
+      ],
+      "methods": [
+        {
+          "methodName": "doGet",
+          "methodDescription": "Fetch city info",
+          "methodResponseClass": "com.razorthink.utils.apidoc.test.Message",
+          "methodRequestClass": "com.razorthink.utils.apidoc.test.Message",
+          "path": "/fetch-city-info",
+          "endpoint": "/fetch-city-info",
+          "requestJSONStructure": "{\n  \"message\": \"3e03c4d8-45d9-4cc0-a5f8-6753be071d50\",\n  \"messageCode\": \"ca2b817a-cdc6-41ed-ae09-d8204adcb3fc\"\n}",
+          "responseJSONStructure": "{\n  \"message\": \"c8bd05eb-08c6-41f2-aaab-745a6b270281\",\n  \"messageCode\": \"869a3cf3-b3b9-470f-b2e0-fb7f0f7a2e0c\"\n}",
+          "version": "1.0",
+          "responseCodes": [
+            {
+              "statusCode": "200_OK",
+              "httpCode": "200",
+              "description": "Fetch city info successfully",
+              "type": "SUCCESS"
+            },
+            {
+              "statusCode": "ERR_BAD_CITY_NAME",
+              "httpCode": "400",
+              "description": "City name isn't right",
+              "type": "FAILURE"
+            }
+          ],
+          "tags": [
+            "fetch",
+            "city"
+          ],
+          "headers": [
+            {
+              "name": "X-RZT-API-TOKEN",
+              "description": "API Auth token",
+              "allowedValues": [
+                "ogow1onnovnlk3"
+              ]
+            }
+          ],
+          "methodType": "GET"
+        },
+        {
+          "methodName": "doPost",
+          "methodDescription": "Add new city info",
+          "methodResponseClass": "com.razorthink.utils.apidoc.test.Message",
+          "methodRequestClass": "com.razorthink.utils.apidoc.test.Message",
+          "path": "/add-new-city",
+          "endpoint": "/add-new-city",
+          "requestJSONStructure": "{\n  \"message\": \"156485ea-ab9c-49b1-b307-baac7c370a7c\",\n  \"messageCode\": \"db4aab8f-711e-4bc3-ba63-dbf5ed3e7878\"\n}",
+          "responseJSONStructure": "{\n  \"message\": \"b752b140-bce0-4b47-a27b-04f86d23a722\",\n  \"messageCode\": \"2ba28ec7-044c-4d8c-8957-11461633853d\"\n}",
+          "version": "1.0",
+          "responseCodes": [
+            {
+              "statusCode": "200_OK",
+              "httpCode": "200",
+              "description": "Fetch city info successfully",
+              "type": "SUCCESS"
+            },
+            {
+              "statusCode": "ERR_NO_CITY_NAME",
+              "httpCode": "400",
+              "description": "City name missing",
+              "type": "FAILURE"
+            }
+          ],
+          "headers": [
+            {
+              "name": "X-RZT-API-TOKEN",
+              "description": "API Auth token",
+              "allowedValues": [
+                "ogow1onnovnlk3"
+              ]
+            }
+          ],
+          "methodType": "POST"
+        }
+      ]
+    },
+    {
+      "serviceName": "Testservice",
+      "serviceClassName": "com.razorthink.utils.apidoc.test.TestJerseyServiceClass",
+      "serviceDescription": "Test service desc",
+      "path": "/test",
+      "headers": [
+        {
+          "name": "X-TEST-HEADER",
+          "description": "Test service header",
+          "allowedValues": [
+            "123",
+            "abc"
+          ]
+        }
+      ],
+      "methods": [
+        {
+          "methodName": "fetchCityInfo",
+          "methodDescription": "Fetch city info",
+          "methodResponseClass": "com.razorthink.utils.apidoc.test.Message",
+          "path": "/fetch-city-info",
+          "endpoint": "/test/fetch-city-info",
+          "responseJSONStructure": "{\n  \"message\": \"f88243d5-0691-4cb4-af3c-63799bea7001\",\n  \"messageCode\": \"0cd1224f-e578-4076-b708-65da11dc1966\"\n}",
+          "version": "1.0",
+          "responseCodes": [
+            {
+              "statusCode": "200_OK",
+              "httpCode": "200",
+              "description": "Fetch city info successfully",
+              "type": "SUCCESS"
+            },
+            {
+              "statusCode": "ERR_BAD_CITY_NAME",
+              "httpCode": "400",
+              "description": "City name isn't right",
+              "type": "FAILURE"
+            }
+          ],
+          "headers": [
+            {
+              "name": "X-RZT-API-TOKEN",
+              "description": "API Auth token",
+              "allowedValues": [
+                "ogow1onnovnlk3"
+              ]
+            }
+          ],
+          "methodType": "GET",
+          "verbs": [
+            "country",
+            "city"
+          ]
+        },
+        {
+          "methodName": "addNewCity",
+          "methodDescription": "Add new city info",
+          "methodResponseClass": "com.razorthink.utils.apidoc.test.Message",
+          "methodRequestClass": "com.razorthink.utils.apidoc.test.Message",
+          "path": "/add-new-city",
+          "endpoint": "/test/add-new-city",
+          "requestJSONStructure": "{\n  \"message\": \"745bf857-f309-45ca-80f0-2c24a8bdd9e7\",\n  \"messageCode\": \"7ce80241-2ed1-44e6-a1be-a33bfc1c79e4\"\n}",
+          "responseJSONStructure": "{\n  \"message\": \"8c995616-f4e0-4bfe-858a-9a22d398a10b\",\n  \"messageCode\": \"0ccaf9c4-0e7c-4c1c-8b5a-5c2d40ead40e\"\n}",
+          "version": "1.0",
+          "responseCodes": [
+            {
+              "statusCode": "200_OK",
+              "httpCode": "200",
+              "description": "Fetch city info successfully",
+              "type": "SUCCESS"
+            },
+            {
+              "statusCode": "ERR_NO_CITY_NAME",
+              "httpCode": "400",
+              "description": "City name missing",
+              "type": "FAILURE"
+            }
+          ],
+          "headers": [
+            {
+              "name": "X-RZT-API-TOKEN",
+              "description": "API Auth token",
+              "allowedValues": [
+                "ogow1onnovnlk3"
+              ]
+            }
+          ],
+          "methodType": "POST"
+        }
+      ]
+    }
+  ]
+}

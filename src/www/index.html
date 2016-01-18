@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Basic Example</title>
+<link rel="stylesheet" href="split-pane.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="split-pane.js"></script>
+<style type="text/css">
+html, body {
+	height: 100%;
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.split-pane-divider {
+	background: #aaa;
+}
+
+#left-component {
+	width: 20em;
+}
+
+#my-divider {
+	left: 20em; /* Same as left component width */
+	width: 5px;
+}
+
+#right-component {
+	left: 20em; /* Same as left component width */
+	margin-left: 5px; /* Same as divider width */
+}
+</style>
+<script>
+	$(document)
+			.ready(
+					function() {
+						var jsonSrc = {
+							"appName" : "Test Webapp",
+							"services" : [
+									{
+										"serviceName" : "Test service",
+										"serviceClassName" : "com.razorthink.utils.apidoc.test.TestHTTPServletClass",
+										"serviceDescription" : "Test service desc",
+										"path" : "/",
+										"tags" : [ "test", "servlet" ],
+										"headers" : [ {
+											"name" : "X-TEST-HEADER",
+											"description" : "Test service header",
+											"allowedValues" : [ "123", "abc" ]
+										} ],
+										"methods" : [
+												{
+													"methodName" : "doGet",
+													"methodDescription" : "Fetch city info",
+													"methodResponseClass" : "com.razorthink.utils.apidoc.test.Message",
+													"methodRequestClass" : "com.razorthink.utils.apidoc.test.Message",
+													"path" : "/fetch-city-info",
+													"endpoint" : "/fetch-city-info",
+													"requestJSONStructure" : "{\n  \"message\": \"3e03c4d8-45d9-4cc0-a5f8-6753be071d50\",\n  \"messageCode\": \"ca2b817a-cdc6-41ed-ae09-d8204adcb3fc\"\n}",
+													"responseJSONStructure" : "{\n  \"message\": \"c8bd05eb-08c6-41f2-aaab-745a6b270281\",\n  \"messageCode\": \"869a3cf3-b3b9-470f-b2e0-fb7f0f7a2e0c\"\n}",
+													"version" : "1.0",
+													"responseCodes" : [
+															{
+																"statusCode" : "200_OK",
+																"httpCode" : "200",
+																"description" : "Fetch city info successfully",
+																"type" : "SUCCESS"
+															},
+															{
+																"statusCode" : "ERR_BAD_CITY_NAME",
+																"httpCode" : "400",
+																"description" : "City name isn't right",
+																"type" : "FAILURE"
+															} ],
+													"tags" : [ "fetch", "city" ],
+													"headers" : [ {
+														"name" : "X-RZT-API-TOKEN",
+														"description" : "API Auth token",
+														"allowedValues" : [ "ogow1onnovnlk3" ]
+													} ],
+													"methodType" : "GET"
+												},
+												{
+													"methodName" : "doPost",
+													"methodDescription" : "Add new city info",
+													"methodResponseClass" : "com.razorthink.utils.apidoc.test.Message",
+													"methodRequestClass" : "com.razorthink.utils.apidoc.test.Message",
+													"path" : "/add-new-city",
+													"endpoint" : "/add-new-city",
+													"requestJSONStructure" : "{\n  \"message\": \"156485ea-ab9c-49b1-b307-baac7c370a7c\",\n  \"messageCode\": \"db4aab8f-711e-4bc3-ba63-dbf5ed3e7878\"\n}",
+													"responseJSONStructure" : "{\n  \"message\": \"b752b140-bce0-4b47-a27b-04f86d23a722\",\n  \"messageCode\": \"2ba28ec7-044c-4d8c-8957-11461633853d\"\n}",
+													"version" : "1.0",
+													"responseCodes" : [
+															{
+																"statusCode" : "200_OK",
+																"httpCode" : "200",
+																"description" : "Fetch city info successfully",
+																"type" : "SUCCESS"
+															},
+															{
+																"statusCode" : "ERR_NO_CITY_NAME",
+																"httpCode" : "400",
+																"description" : "City name missing",
+																"type" : "FAILURE"
+															} ],
+													"headers" : [ {
+														"name" : "X-RZT-API-TOKEN",
+														"description" : "API Auth token",
+														"allowedValues" : [ "ogow1onnovnlk3" ]
+													} ],
+													"methodType" : "POST"
+												} ]
+									},
+									{
+										"serviceName" : "Testservice",
+										"serviceClassName" : "com.razorthink.utils.apidoc.test.TestJerseyServiceClass",
+										"serviceDescription" : "Test service desc",
+										"path" : "/test",
+										"headers" : [ {
+											"name" : "X-TEST-HEADER",
+											"description" : "Test service header",
+											"allowedValues" : [ "123", "abc" ]
+										} ],
+										"methods" : [
+												{
+													"methodName" : "fetchCityInfo",
+													"methodDescription" : "Fetch city info",
+													"methodResponseClass" : "com.razorthink.utils.apidoc.test.Message",
+													"path" : "/fetch-city-info",
+													"endpoint" : "/test/fetch-city-info",
+													"responseJSONStructure" : "{\n  \"message\": \"f88243d5-0691-4cb4-af3c-63799bea7001\",\n  \"messageCode\": \"0cd1224f-e578-4076-b708-65da11dc1966\"\n}",
+													"version" : "1.0",
+													"responseCodes" : [
+															{
+																"statusCode" : "200_OK",
+																"httpCode" : "200",
+																"description" : "Fetch city info successfully",
+																"type" : "SUCCESS"
+															},
+															{
+																"statusCode" : "ERR_BAD_CITY_NAME",
+																"httpCode" : "400",
+																"description" : "City name isn't right",
+																"type" : "FAILURE"
+															} ],
+													"headers" : [ {
+														"name" : "X-RZT-API-TOKEN",
+														"description" : "API Auth token",
+														"allowedValues" : [ "ogow1onnovnlk3" ]
+													} ],
+													"methodType" : "GET",
+													"verbs" : [ "country",
+															"city" ]
+												},
+												{
+													"methodName" : "addNewCity",
+													"methodDescription" : "Add new city info",
+													"methodResponseClass" : "com.razorthink.utils.apidoc.test.Message",
+													"methodRequestClass" : "com.razorthink.utils.apidoc.test.Message",
+													"path" : "/add-new-city",
+													"endpoint" : "/test/add-new-city",
+													"requestJSONStructure" : "{\n  \"message\": \"745bf857-f309-45ca-80f0-2c24a8bdd9e7\",\n  \"messageCode\": \"7ce80241-2ed1-44e6-a1be-a33bfc1c79e4\"\n}",
+													"responseJSONStructure" : "{\n  \"message\": \"8c995616-f4e0-4bfe-858a-9a22d398a10b\",\n  \"messageCode\": \"0ccaf9c4-0e7c-4c1c-8b5a-5c2d40ead40e\"\n}",
+													"version" : "1.0",
+													"responseCodes" : [
+															{
+																"statusCode" : "200_OK",
+																"httpCode" : "200",
+																"description" : "Fetch city info successfully",
+																"type" : "SUCCESS"
+															},
+															{
+																"statusCode" : "ERR_NO_CITY_NAME",
+																"httpCode" : "400",
+																"description" : "City name missing",
+																"type" : "FAILURE"
+															} ],
+													"headers" : [ {
+														"name" : "X-RZT-API-TOKEN",
+														"description" : "API Auth token",
+														"allowedValues" : [ "ogow1onnovnlk3" ]
+													} ],
+													"methodType" : "POST"
+												} ]
+									} ]
+						};
+						console.log(jsonSrc.appName);
+						renderAPIDoc(jsonSrc);
+
+						function renderAPIDoc(json) {
+							console.log("rendering api doc...");
+							$("#left-component").append("<div>Services:</div>");
+							for (var servicesIndex = 0; servicesIndex < json.services.length; servicesIndex++) {
+								var service = json.services[servicesIndex];
+								console.log(service.serviceName);
+								for (var methodsIndex = 0; methodsIndex < service.methods.length; methodsIndex++) {
+									var method = service.methods[methodsIndex];
+									var divId = cleanUpForID(generateId());
+
+									var routeItemHtml = "<div id='"+divId+"'><a href='#' onclick='renderRouteDetailsOnRightPane(\""
+											+ divId
+											+ "\");'>"
+											+ method.endpoint
+											+ "</a><p style='display:none;' href='#'>"
+											+ JSON.stringify(method)
+											+ "</p></div>";
+									$("#left-component").append(routeItemHtml);
+								}
+							}
+
+						}
+
+					});
+	$(function() {
+		$('div.split-pane').splitPane();
+	});
+
+	function generateId() {
+		var text = "";
+		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		for (var i = 0; i < 5; i++)
+			text += possible
+					.charAt(Math.floor(Math.random() * possible.length));
+		return text;
+	}
+
+	function cleanUpForID(str) {
+		return str = str.replace(/\s+/g, '');
+	}
+	function renderRouteDetailsOnRightPane(divId) {
+		$("#right-component").html("");
+		var routeInfo = JSON.parse($("#" + divId + " p").html());
+		prettyPrintJSON(routeInfo);
+		$("#right-component")
+				.append(
+						"<div>Description: <br/>"
+								+ routeInfo.methodDescription
+								+ "<p>Method: "
+								+ routeInfo.methodType
+								+ "</p>Endpoint: "
+								+ routeInfo.endpoint
+								+ "<br/><br/>Request structure:<br/><textarea rows='10' cols='100' readonly>"
+								+ routeInfo.requestJSONStructure
+								+ "</textarea ></div>");
+	}
+	function prettyPrintJSON(jsonStr) {
+		console.log(JSON.stringify(jsonStr, null, "\t"));
+	}
+</script>
+</head>
+<body>
+	<div class="split-pane fixed-left">
+		<div class="split-pane-component" id="left-component"></div>
+		<div class="split-pane-divider" id="my-divider"></div>
+		<div class="split-pane-component" id="right-component"></div>
+	</div>
+</body>
+</html>
